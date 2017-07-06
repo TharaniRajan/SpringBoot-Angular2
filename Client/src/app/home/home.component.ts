@@ -1,0 +1,24 @@
+import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { HomeDirective } from './home.directive';
+import { SharedService } from '../shared/shared.service';
+import { HomeENComponent } from './home-en.component';
+
+@Component({
+    template: '<template home></template>'
+
+})
+export class HomeComponent implements OnInit {
+    @ViewChild(HomeDirective) adHost: HomeDirective;
+    constructor(private _componentFactoryResolver: ComponentFactoryResolver, private shared_service: SharedService) { }
+
+    ngOnInit() {
+        let browser_language = this.shared_service.browser_language;
+        console.log(browser_language);
+        if(browser_language === 'en'){
+            let componentFactory = this._componentFactoryResolver.resolveComponentFactory(HomeENComponent);
+            let viewContainerRef = this.adHost.viewContainerRef;
+            viewContainerRef.clear();
+            let componentRef = viewContainerRef.createComponent(componentFactory);
+        }
+    }
+}

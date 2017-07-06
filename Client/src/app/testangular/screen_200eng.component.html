@@ -1,0 +1,31 @@
+<div class="container screen">
+    <div class="row" style="padding-top: 104px">
+    <div class="col-lg-3 col-lg-offset-3"><input class="form-control" placeholder="Input" [(ngModel)]="testangular.name">
+    </div>
+    </div>
+    <div class="row" style="padding-top: 95px">
+    <div class="col-lg-1 col-lg-offset-3"><button class="btn btn-primary" (click)="create_TestAngular()" style="width: 100%;">save</button>
+    </div>
+    </div>
+    <div class="row" style="padding-top: 48px">
+    <div class="col-lg-1 col-lg-offset-3"><button class="btn btn-primary" (click)="update_TestAngular()" style="width: 100%;">update</button>
+    </div>
+    </div>
+    <div class="row" style="padding-top: 52px">
+    <div class="col-lg-1 col-lg-offset-3"><button class="btn btn-primary" (click)="delete_TestAngular()" style="width: 100%;">delete</button>
+    </div>
+    </div>
+
+</div>
+<modal #modalSFU>
+	<modal-header [show-close]="true">
+		<h4 class="modal-title">ID required!</h4>
+	</modal-header>
+	<modal-body>
+		<input placeholder="TestAngular ID" [(ngModel)]="testangular.id" />
+	</modal-body>
+	<modal-footer>
+		<button type="button" class="btn btn-default" data-dismiss="modal" (click)="modalSFU.dismiss()">Cancel</button>
+		<button type="button" class="btn btn-primary" (click)="search_for_update_TestAngular()">Get TestAngular</button>
+	</modal-footer>
+</modal>
